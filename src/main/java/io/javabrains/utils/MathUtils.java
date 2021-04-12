@@ -1,6 +1,5 @@
 package io.javabrains.utils;
 
-import javax.swing.*;
 import java.util.*;
 
 public class MathUtils {
@@ -100,6 +99,58 @@ public class MathUtils {
             }
         }
         return true;
+    }
+
+    public boolean checkAnagram(String input1, String input2) {
+        boolean results =false;
+        if (input1.length() == input2.length()) {
+            char[] input1Array = input1.toLowerCase().toCharArray();
+            char[] input2Array = input2.toLowerCase().toCharArray();
+            Arrays.sort(input1Array);
+            Arrays.sort(input2Array);
+            System.out.println(input1Array);
+            System.out.println(input2Array);
+            results=Arrays.equals(input1Array,input2Array);
+            System.out.println(results);
+
+
+        }
+        return results;
+
+    }
+
+    public ArrayList<Integer> checkPrime(int a, int b) {
+        ArrayList<Integer> results = new ArrayList<>();
+        int flag;
+        for (int i = a; i <= b; i++) {
+            System.out.println("i"+i);
+
+            // Skip 0 and 1 as they are
+            // niether prime nor composite
+            if (i == 1 || i == 0)
+                continue;
+
+            // flag variable to tell
+            // if i is prime or not
+            flag = 1;
+
+            for (int j = 2; j <= i / 2; ++j) {
+                System.out.println("J"+j);
+                if (i % j == 0) {
+                    flag = 0;
+                    break;
+                }
+            }
+
+            // flag = 1 means i is prime
+            // and flag = 0 means i is not prime
+            if (flag == 1)
+               results.add(i);
+        }
+
+
+
+        return results;
     }
 
 
