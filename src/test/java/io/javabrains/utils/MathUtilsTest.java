@@ -191,6 +191,10 @@ class MathUtilsTest {
         });
 
     }
+    @Test
+    void invertTestHonourEffect(){
+        assertEquals("Banglawala,Taslima",nameInverter.invert("Mrs Taslima Banglawala"));
+    }
 
 
 

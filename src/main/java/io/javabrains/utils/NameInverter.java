@@ -2,6 +2,7 @@ package io.javabrains.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class NameInverter {
     public String invert(String name) {
@@ -13,7 +14,28 @@ public class NameInverter {
         if(nameArray.size()<2){
             return nameArray.get(0);
         }
-        return invert(nameArray);
+        return invert(withoutHonarific(nameArray));
+    }
+
+    private ArrayList<String> withoutHonarific(ArrayList<String> nameArray) {
+        if(isHonorific(nameArray.get(0))) {
+            nameArray.remove(0);
+
+        }
+        return nameArray;
+
+    }
+
+    private boolean isHonorific(String s) {
+        List<String> immutableList =
+                List.of("Mr","Mrs","Dr");
+        if(immutableList.contains(s)){
+            return true;
+
+        }
+        else{
+            return false;
+        }
     }
 
     private String invert(ArrayList<String> nameArray) {
